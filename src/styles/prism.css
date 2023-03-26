@@ -16,7 +16,11 @@ pre[class*='language-'] {
 .token.rule,
 .token.pseudo-class,
 .token.important {
-  color: theme('colors.slate.300');
+  color: #c792ea;
+}
+
+.token.number {
+  color: #fd9170;
 }
 
 .token.module {
@@ -32,7 +36,7 @@ pre[class*='language-'] {
 
 .token.punctuation,
 .token.attr-equals {
-  color: theme('colors.slate.500');
+  color: #89ddff;
 }
 
 .token.unit,

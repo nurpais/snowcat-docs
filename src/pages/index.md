@@ -10,13 +10,13 @@ Looking for hosted Snowplow? Please visit our [website](https://www.snowcatcloud
 
 {% quick-links %}
 
-{% quick-link title="Get Started" icon="installation" href="/" description="Get started with SnowcatCloud." /%}
+{% quick-link title="Get Started" icon="installation" href="/docs/get-started" description="Get started with SnowcatCloud." /%}
 
 {% quick-link title="Google Analytics" icon="presets" href="/" description="Google Analytics Integration." /%}
 
-{% quick-link title="SnowcatCloud Chrome Extension" icon="plugins" href="/" description="Extend the library with third-party plugins or write your own." /%}
+{% quick-link title="Chrome Extension" icon="plugins" href="/" description="SnowcatCloud Chrome Extension" /%}
 
-{% quick-link title="API reference" icon="theming" href="/" description="Learn to easily customize and modify your app's visual design to fit your brand." /%}
+{% quick-link title="Integrations" icon="theming" href="/" description="Some description." /%}
 
 {% /quick-links %}
 

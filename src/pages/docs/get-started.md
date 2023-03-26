@@ -3,7 +3,7 @@ title: Get Started
 description: Welcome to SnowcatCloud! Your pipeline is now ready to run; congratulations!
 ---
 
-Welcome to SnowcatCloud! Your pipeline is now ready to run; congratulations!
+Welcome to SnowcatCloud! Your pipeline is now ready to run; congratulations! {% .lead %}
 
 Let's start by getting familiar with the data that will soon be getting to your data warehouse.
 
@@ -11,7 +11,7 @@ Let's start by getting familiar with the data that will soon be getting to your 
 
 ## Getting Familiar with the data
 
-Before you start tracking events, please spend some time getting familiar with what the data will look like. Please visit {% link title="Snowplow Canonical Event Model" href="https://docs.snowplow.io/docs/understanding-your-pipeline/canonical-event/" target="_blank" /%} to get familiarized with the data in the events table.
+Before you start tracking events, please spend some time getting familiar with what the data will look like. Please visit [Snowplow Canonical Event Model](https://docs.snowplow.io/docs/understanding-your-pipeline/canonical-event/) to get familiarized with the data in the events table.
 
 {% callout %}
 Notice the events table will have some empty fields depending on the SDK you are using. Most of the information will be available through additional tables or columns, depending on your data warehouse.
@@ -34,9 +34,15 @@ The information in these tables is produced by SnowcatCloud enrichments.
 
 ### YAUAA
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+[YAUAA](https://yauaa.basjes.nl/) is a user agent parser that extracts the most information from any given user-agent string. Please visit this [website](https://try.yauaa.basjes.nl/) for a demo.
 
-Voluptas beatae omnis omnis voluptas. Cum architecto ab sit ad eaque quas quia distinctio. Molestiae aperiam qui quis deleniti soluta quia qui. Dolores nostrum blanditiis libero optio id. Mollitia ad et asperiores quas saepe alias.
+**How to query**
+
+```sql
+SELECT contexts_nl_basjes_yauaa_context_1[0].deviceBrand::varchar
+FROM schema.events
+LIMIT 10
+```
 
 ---
 
