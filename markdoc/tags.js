@@ -1,5 +1,9 @@
 import { Callout } from '@/components/Callout'
 import { QuickLink, QuickLinks } from '@/components/QuickLinks'
+import { Tab } from '@/components/Tab'
+import { Tabs } from '@/components/Tabs'
+import { Tag } from '@markdoc/markdoc'
+// import Tabs from '@/components/Tabs'
 
 const tags = {
   callout: {
@@ -40,6 +44,25 @@ const tags = {
       description: { type: String },
       icon: { type: String },
       href: { type: String },
+    },
+  },
+  tabs: {
+    render: Tabs,
+    transform(node, config) {
+      const labels = node
+        .transformChildren(config)
+        .filter((child) => child && child.name === 'Tab')
+        .map((tab) => (typeof tab === 'object' ? tab.attributes.label : null))
+
+      return new Tag(this.render, { labels }, node.transformChildren(config))
+    },
+  },
+  tab: {
+    render: Tab,
+    attributes: {
+      label: {
+        type: String,
+      },
     },
   },
 }

@@ -1,71 +1,37 @@
 ---
-title: Basics of time-travel
-description: Quidem magni aut exercitationem maxime rerum eos.
+title: Authoring Schemas
+description: 'How to create Snowplow schemas'
 ---
 
-Quasi sapiente voluptates aut minima non doloribus similique quisquam. In quo expedita ipsum nostrum corrupti incidunt. Et aut eligendi ea perferendis.
+## What are Schemas
 
----
+Snowplow schemas are self-describing JSONs used to add additional context to events. Think of Google Analytics custom dimensions or Adobe Traffic Variables but nicely grouped under a logical name.
 
-## Quis vel iste dicta
+The grouping is essential as it provides a layer of governance, unlike sending Adhoc JSON payloads like other vendors.
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur.
+Snowplow also enforces that the payload matches the schema specifications; otherwise, the event will be considered invalid.
 
-### Et pariatur ab quas
+There are several advantages:
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+- You will never run out of space for context
+- Schemas are versioned and can expand/contract with business needs
+- Schemas are reusable
+- Schema variables are easy to read and understand
+- Easier data modeling
 
-```js
-/** @type {import('@tailwindlabs/lorem').ipsum} */
-export default {
-  lorem: 'ipsum',
-  dolor: ['sit', 'amet', 'consectetur'],
-  adipiscing: {
-    elit: true,
-  },
-}
-```
+{% callout type="warning" %}
+Schemas are immutable. Once schemas are in production, they can't be edited or deleted. To alter a schema, you need to increment its version. This ensures compatibility with existing properties that might be sending events with existing schemas.
+{% /callout %}
 
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste. Provident nam asperiores vel laboriosam omnis ducimus enim nesciunt quaerat. Minus tempora cupiditate est quod.
+## Authoring Schemas
 
-### Natus aspernatur iste
+1. Download the [template schema boilerplate](https://docs.snowcatcloud.com/schemas/iglu-example-schema-registry.zip) and rename it to iglu-yourcompany-schema-registry.
+2. Version your Iglu schema registry with git
+3. Install [igluctl](https://github.com/snowplow-incubator/igluctl)
+4. Use a code editor to author schema (e.g. VSCode)
+5. Validate schemas with igluctl and [Snowplow Micro](https://github.com/snowplow-incubator/snowplow-micro)
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+## Best Practices
 
-Voluptas beatae omnis omnis voluptas. Cum architecto ab sit ad eaque quas quia distinctio. Molestiae aperiam qui quis deleniti soluta quia qui. Dolores nostrum blanditiis libero optio id. Mollitia ad et asperiores quas saepe alias.
-
----
-
-## Quos porro ut molestiae
-
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur.
-
-### Voluptatem quas possimus
-
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
-
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste. Provident nam asperiores vel laboriosam omnis ducimus enim nesciunt quaerat. Minus tempora cupiditate est quod.
-
-### Id vitae minima
-
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
-
-Voluptas beatae omnis omnis voluptas. Cum architecto ab sit ad eaque quas quia distinctio. Molestiae aperiam qui quis deleniti soluta quia qui. Dolores nostrum blanditiis libero optio id. Mollitia ad et asperiores quas saepe alias.
-
----
-
-## Vitae laborum maiores
-
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur.
-
-### Corporis exercitationem
-
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
-
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste. Provident nam asperiores vel laboriosam omnis ducimus enim nesciunt quaerat. Minus tempora cupiditate est quod.
-
-### Reprehenderit magni
-
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
-
-Voluptas beatae omnis omnis voluptas. Cum architecto ab sit ad eaque quas quia distinctio. Molestiae aperiam qui quis deleniti soluta quia qui. Dolores nostrum blanditiis libero optio id. Mollitia ad et asperiores quas saepe alias.
+- Always validate your schemas with igluctl
+- If your schema has a verb name you're doing it wrong (e.g. feature\_**click**)

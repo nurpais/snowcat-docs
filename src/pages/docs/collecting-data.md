@@ -1,71 +1,173 @@
 ---
-title: Predicting user behavior
-description: Quidem magni aut exercitationem maxime rerum eos.
+title: Collecting Data
+description: 'Collecting data with Snowplow'
 ---
 
-Quasi sapiente voluptates aut minima non doloribus similique quisquam. In quo expedita ipsum nostrum corrupti incidunt. Et aut eligendi ea perferendis.
+## More than 20 SDKs available
+
+Snowplow has [20 SDKs](https://docs.snowplowanalytics.com/docs/collecting-data/collecting-from-own-applications/) available for different programming languages. You can collect events client-side and/or server-side.
 
 ---
 
-## Quis vel iste dicta
+## Google Tag Manager Custom Templates
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur.
+Snowplow created two GTM templates to facilitate the implementation of Snowplow within Google Tag Manager. Please see their [documentation](https://docs.snowplowanalytics.com/docs/collecting-data/collecting-from-own-applications/javascript-trackers/javascript-tracker/google-tag-manager-custom-template/) for complete reference.
 
-### Et pariatur ab quas
+- [Snowplow Analytics Settings](https://tagmanager.google.com/gallery/#/owners/snowplow/templates/snowplow-gtm-custom-template-settings)
+- [Snowplow Analytics](https://tagmanager.google.com/gallery/#/owners/snowplow/templates/snowplow-gtm-custom-template)
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+---
 
-```js
-/** @type {import('@tailwindlabs/lorem').ipsum} */
-export default {
-  lorem: 'ipsum',
-  dolor: ['sit', 'amet', 'consectetur'],
-  adipiscing: {
-    elit: true,
-  },
-}
+## Javascript Tracker
+
+Please read the complete documentation on [Snowplow v2 JS Tracker](https://docs.snowplowanalytics.com/docs/collecting-data/collecting-from-own-applications/javascript-trackers/javascript-tracker/javascript-tracker-v2/) and [Snowplow v3 JS Tracker](https://docs.snowplowanalytics.com/docs/collecting-data/collecting-from-own-applications/javascript-trackers/javascript-tracker/javascript-tracker-v3/).
+
+Tracking events is simple, first load the sp.js tracker, then initialize it, and it is ready to track events.
+
+{% callout type="warning" %}
+Snowplow recommends renaming sp.js as this file name is commonly blocked by adblockers. Renaming to a random string will help ensure the JavaScript Tracker is loaded as expected. It is also recommended to host the Javascript tracker under your domain.
+{% /callout %}
+
+Tracker setup and initialization with basic options.
+
+{% tabs %}
+
+{% tab label="Javascript v2" %}
+
+```html
+<script type="text/javascript" async="1">
+  // Load the Tracker V2
+  ;(function (p, l, o, w, i, n, g) {
+    if (!p[i]) {
+      p.GlobalSnowplowNamespace = p.GlobalSnowplowNamespace || []
+      p.GlobalSnowplowNamespace.push(i)
+      p[i] = function () {
+        ;(p[i].q = p[i].q || []).push(arguments)
+      }
+      p[i].q = p[i].q || []
+      n = l.createElement(o)
+      g = l.getElementsByTagName(o)[0]
+      n.async = 1
+      n.src = w
+      g.parentNode.insertBefore(n, g)
+    }
+  })(
+    window,
+    document,
+    'script',
+    '//cdn.jsdelivr.net/gh/snowplow/sp-js-assets@2.18.0/sp.min.js',
+    'snowplow'
+  )
+
+  // Initialization
+  window.snowplow('newTracker', 'cf', 'sp.yourcollector.com', {
+    appId: 'yourappid',
+    discoverRootDomain: true,
+    cookieSameSite: 'Lax', // Recommended
+    contexts: {
+      webPage: true,
+    },
+  })
+</script>
 ```
 
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste. Provident nam asperiores vel laboriosam omnis ducimus enim nesciunt quaerat. Minus tempora cupiditate est quod.
+{% /tab %}
 
-### Natus aspernatur iste
+{% tab label="Javascript v3" %}
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+```html
+<script type="text/javascript" async="1">
+  // Load the Tracker V3
+  ;(function (p, l, o, w, i, n, g) {
+    if (!p[i]) {
+      p.GlobalSnowplowNamespace = p.GlobalSnowplowNamespace || []
+      p.GlobalSnowplowNamespace.push(i)
+      p[i] = function () {
+        ;(p[i].q = p[i].q || []).push(arguments)
+      }
+      p[i].q = p[i].q || []
+      n = l.createElement(o)
+      g = l.getElementsByTagName(o)[0]
+      n.async = 1
+      n.src = w
+      g.parentNode.insertBefore(n, g)
+    }
+  })(
+    window,
+    document,
+    'script',
+    '//cdn.jsdelivr.net/npm/@snowplow/javascript-tracker@3.4.0/dist/sp.min.js',
+    'snowplow'
+  )
 
-Voluptas beatae omnis omnis voluptas. Cum architecto ab sit ad eaque quas quia distinctio. Molestiae aperiam qui quis deleniti soluta quia qui. Dolores nostrum blanditiis libero optio id. Mollitia ad et asperiores quas saepe alias.
+  // Initialization
+  window.snowplow('newTracker', 'sp', 'sp.yourcollector.com', {
+    appId: 'yourappid',
+    discoverRootDomain: true,
+    cookieSameSite: 'Lax', // Recommended
+    contexts: {
+      webPage: true, // default, can be omitted
+    },
+  })
+</script>
+```
 
----
+{% /tab %}
 
-## Quos porro ut molestiae
+{% /tabs %}
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur.
+Tracking a page view, and a page view with schema.
 
-### Voluptatem quas possimus
+{% tabs %}
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+{% tab label="Pageview" %}
 
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste. Provident nam asperiores vel laboriosam omnis ducimus enim nesciunt quaerat. Minus tempora cupiditate est quod.
+```html
+<script>
+  window.snowplow('trackPageView')
+</script>
+```
 
-### Id vitae minima
+{% /tab %}
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+{% tab label="Pageview v2 w/ Schema" %}
 
-Voluptas beatae omnis omnis voluptas. Cum architecto ab sit ad eaque quas quia distinctio. Molestiae aperiam qui quis deleniti soluta quia qui. Dolores nostrum blanditiis libero optio id. Mollitia ad et asperiores quas saepe alias.
+```html
+<script>
+  var context = [
+    {
+      schema: 'iglu:com.vendor/schema_name/jsonschema/1-0-0',
+      data: {
+        datapoint: 'Value',
+        second_datapoint: 'Other value',
+      },
+    },
+  ]
 
----
+  window.snowplow('trackPageView', null, context)
+</script>
+```
 
-## Vitae laborum maiores
+{% /tab %}
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur.
+{% tab label="Pageview v3 w/ Schema" %}
 
-### Corporis exercitationem
+```html
+<script>
+  var context = [
+    {
+      schema: 'iglu:com.vendor/schema_name/jsonschema/1-0-0',
+      data: {
+        datapoint: 'Value',
+        second_datapoint: 'Other value',
+      },
+    },
+  ]
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+  window.snowplow('trackPageView', { context })
+</script>
+```
 
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste. Provident nam asperiores vel laboriosam omnis ducimus enim nesciunt quaerat. Minus tempora cupiditate est quod.
+{% /tab %}
 
-### Reprehenderit magni
-
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
-
-Voluptas beatae omnis omnis voluptas. Cum architecto ab sit ad eaque quas quia distinctio. Molestiae aperiam qui quis deleniti soluta quia qui. Dolores nostrum blanditiis libero optio id. Mollitia ad et asperiores quas saepe alias.
+{% /tabs %}

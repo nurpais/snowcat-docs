@@ -49,3 +49,7 @@ pre[class*='language-'] {
 .token.combinator {
   color: theme('colors.slate.400');
 }
+
+.tabs + .prism-code {
+  @apply mt-0 rounded-tl-none rounded-tr-none;
+}

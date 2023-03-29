@@ -28,21 +28,19 @@ const navigation = [
     ],
   },
   {
-    title: 'Advanced guides',
+    title: 'ICEBERG',
     links: [
-      { title: 'Writing plugins', href: '/docs/writing-plugins' },
-      { title: 'Neuralink integration', href: '/docs/neuralink-integration' },
-      { title: 'Temporal paradoxes', href: '/docs/temporal-paradoxes' },
-      { title: 'Testing', href: '/docs/testing' },
-      { title: 'Compile-time caching', href: '/docs/compile-time-caching' },
+      { title: 'Neo4j Snowplow Integration', href: '/docs/neo4j' },
+      { title: 'Adding an Identifier', href: '/docs/add-identifier' },
+      { title: 'Adding a Group', href: '/docs/add-group' },
       {
-        title: 'Predictive data generation',
-        href: '/docs/predictive-data-generation',
+        title: 'Adding Identifiers in Bulk',
+        href: '/docs/add-identifiers-bulk',
       },
     ],
   },
   {
-    title: 'API reference',
+    title: 'Integrations',
     links: [
       { title: 'CacheAdvance.predict()', href: '/docs/cacheadvance-predict' },
       { title: 'CacheAdvance.flush()', href: '/docs/cacheadvance-flush' },
