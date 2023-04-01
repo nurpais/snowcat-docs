@@ -42,18 +42,19 @@ const navigation = [
   {
     title: 'Integrations',
     links: [
-      { title: 'CacheAdvance.predict()', href: '/docs/cacheadvance-predict' },
-      { title: 'CacheAdvance.flush()', href: '/docs/cacheadvance-flush' },
-      { title: 'CacheAdvance.revert()', href: '/docs/cacheadvance-revert' },
-      { title: 'CacheAdvance.regret()', href: '/docs/cacheadvance-regret' },
+      { title: 'Shopify', href: '/docs/shopify' },
+      { title: 'FingerprintJS', href: '/docs/fingerprintjs' },
+      { title: 'Cloudflare', href: '/docs/cloudflare' },
+      { title: 'Google Analytics', href: '/docs/google-analytics' },
     ],
   },
   {
-    title: 'Contributing',
+    title: 'Chrome extension',
     links: [
-      { title: 'How to contribute', href: '/docs/how-to-contribute' },
-      { title: 'Architecture guide', href: '/docs/architecture-guide' },
-      { title: 'Design principles', href: '/docs/design-principles' },
+      { title: 'Introduction', href: '/docs/chrome-extension-introduction' },
+      { title: 'How to use', href: '/docs/chrome-extension-how-to-use' },
+      { title: 'Installation', href: '/docs/chrome-extension-installation' },
+      { title: 'Releases', href: '/docs/chrome-extension-releases' },
     ],
   },
 ]
@@ -95,7 +96,7 @@ function Header({ navigation }) {
       <div className="relative flex flex-grow basis-0 items-center">
         <Link href="/" aria-label="Home page">
           <Logomark className="h-9 w-9 lg:hidden" />
-          <Logo className="hidden h-9 w-auto fill-slate-700 dark:fill-sky-100 lg:block" />
+          <Logo className="hidden h-9 w-auto fill-[#020202] dark:fill-white lg:block" />
         </Link>
       </div>
       <div className="-my-5 mr-6 sm:mr-8 md:mr-0">

@@ -1,4 +1,5 @@
 import { Callout } from '@/components/Callout'
+import IFrame from '@/components/IFrame'
 import { QuickLink, QuickLinks } from '@/components/QuickLinks'
 import { Tab } from '@/components/Tab'
 import { Tabs } from '@/components/Tabs'
@@ -61,6 +62,21 @@ const tags = {
     render: Tab,
     attributes: {
       label: {
+        type: String,
+      },
+    },
+  },
+  iframe: {
+    render: IFrame,
+    selfClosing: true,
+    attributes: {
+      src: {
+        type: String,
+      },
+      width: {
+        type: String,
+      },
+      height: {
         type: String,
       },
     },
