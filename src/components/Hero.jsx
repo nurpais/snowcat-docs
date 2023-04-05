@@ -48,7 +48,7 @@ export function Hero() {
               priority
             />
             <div className="relative">
-              <p className="inline bg-gradient-to-r from-indigo-200 via-sky-400 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
+              <p className="inline bg-gradient-to-r from-indigo-200 via-sky-400 to-indigo-200 bg-clip-text text-5xl font-semibold tracking-tight  text-transparent">
                 Welcome to SnowcatCloud!
               </p>
               <p className="mt-3 text-2xl tracking-tight text-slate-400">
