@@ -93,23 +93,22 @@ function Header({ navigation }) {
       <div className="mr-6 flex lg:hidden">
         <MobileNavigation navigation={navigation} />
       </div>
-
-
-
-      <div className="relative flex flex-grow basis-0 items-center ">
-        <Link href="/" aria-label="Home page">
-          <Logomark className="h-9 w-9 lg:hidden" />
-          <Logo className="hidden h-9 w-auto fill-[#020202] dark:fill-white lg:block" />
-        </Link>
-      </div>
-      <div className="-my-5 mr-6 sm:mr-8 md:mr-0">
-        <Search />
-      </div>
-      <div className="relative flex basis-0 justify-end gap-6 sm:gap-8 md:flex-grow ">
-        <ThemeSelector className="relative z-10" />
-        <Link href="https://github.com" className="group" aria-label="GitHub">
-          <GitHubIcon className="h-6 w-6 fill-slate-400 group-hover:fill-slate-500 dark:group-hover:fill-slate-300" />
-        </Link>
+      <div className="mx-auto flex max-w-[1572px] flex-1 items-center justify-between xl:px-8">
+        <div className="relative flex  items-center">
+          <Link href="/" aria-label="Home page">
+            <Logomark className="h-9 w-9 lg:hidden" />
+            <Logo className="hidden h-9 w-auto fill-[#020202] dark:fill-white lg:block" />
+          </Link>
+        </div>
+        <div className="-my-5 mr-6 ml-auto sm:mr-8 md:mr-0 md:ml-6">
+          <Search />
+        </div>
+        <div className="relative flex basis-0 justify-end gap-6 sm:gap-8 md:flex-grow">
+          <ThemeSelector className="relative z-10" />
+          <Link href="https://github.com" className="group" aria-label="GitHub">
+            <GitHubIcon className="h-6 w-6 fill-slate-400 group-hover:fill-slate-500 dark:group-hover:fill-slate-300" />
+          </Link>
+        </div>
       </div>
     </header>
   )
@@ -183,11 +182,11 @@ export function Layout({ children, title, tableOfContents }) {
   return (
     <>
       <Header navigation={navigation} />
-    {/*
+      {/*
      {isHomePage && <Hero />} 
     */}
 
-      <div className="relative mx-auto flex max-w-[1572px] justify-center sm:px-2 lg:px-8 xl:px-12">
+      <div className="relative mx-auto flex max-w-[1572px] justify-center sm:px-2 lg:px-8 ">
         <div className="hidden lg:relative lg:block lg:flex-none">
           <div className="absolute inset-y-0 right-0 w-[50vw] bg-slate-50 dark:hidden" />
           <div className="absolute top-16 bottom-0 right-0 hidden h-12 w-px bg-gradient-to-t from-slate-800 dark:block" />
