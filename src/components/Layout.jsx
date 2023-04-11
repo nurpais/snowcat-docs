@@ -17,7 +17,7 @@ const navigation = [
     links: [{ title: 'Welcome', href: '/' }],
   },
   {
-    title: 'SNOWCATCLOUD',
+    title: 'Snowcat Cloud',
     links: [
       { title: 'Get Started', href: '/docs/get-started' },
       {
@@ -28,7 +28,7 @@ const navigation = [
     ],
   },
   {
-    title: 'ICEBERG',
+    title: 'Iceberg',
     links: [
       { title: 'Neo4j Snowplow Integration', href: '/docs/neo4j' },
       { title: 'Adding an Identifier', href: '/docs/add-identifier' },
@@ -93,7 +93,10 @@ function Header({ navigation }) {
       <div className="mr-6 flex lg:hidden">
         <MobileNavigation navigation={navigation} />
       </div>
-      <div className="relative flex flex-grow basis-0 items-center">
+
+
+
+      <div className="relative flex flex-grow basis-0 items-center ">
         <Link href="/" aria-label="Home page">
           <Logomark className="h-9 w-9 lg:hidden" />
           <Logo className="hidden h-9 w-auto fill-[#020202] dark:fill-white lg:block" />
@@ -102,7 +105,7 @@ function Header({ navigation }) {
       <div className="-my-5 mr-6 sm:mr-8 md:mr-0">
         <Search />
       </div>
-      <div className="relative flex basis-0 justify-end gap-6 sm:gap-8 md:flex-grow">
+      <div className="relative flex basis-0 justify-end gap-6 sm:gap-8 md:flex-grow ">
         <ThemeSelector className="relative z-10" />
         <Link href="https://github.com" className="group" aria-label="GitHub">
           <GitHubIcon className="h-6 w-6 fill-slate-400 group-hover:fill-slate-500 dark:group-hover:fill-slate-300" />
@@ -180,8 +183,9 @@ export function Layout({ children, title, tableOfContents }) {
   return (
     <>
       <Header navigation={navigation} />
-
-      {isHomePage && <Hero />}
+    {/*
+     {isHomePage && <Hero />} 
+    */}
 
       <div className="relative mx-auto flex max-w-[1572px] justify-center sm:px-2 lg:px-8 xl:px-12">
         <div className="hidden lg:relative lg:block lg:flex-none">

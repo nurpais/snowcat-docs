@@ -49,7 +49,7 @@ export function Hero() {
             />
             <div className="relative">
               <p className="inline bg-gradient-to-r from-indigo-200 via-sky-400 to-indigo-200 bg-clip-text text-5xl font-semibold tracking-tight  text-transparent">
-                Welcome to SnowcatCloud!
+                Welcome to Snowcat Cloud
               </p>
               <p className="mt-3 text-2xl tracking-tight text-slate-400">
                 Cache every single thing your app could ever do ahead of time,
@@ -57,10 +57,7 @@ export function Hero() {
               </p>
 
               <div className="mt-8 flex gap-4 md:justify-center lg:justify-start">
-                <Button href="/">Get started</Button>
-                <Button href="/" variant="secondary">
-                  View on GitHub
-                </Button>
+                <Button href="https://www.snowcatcloud.com/">30 Day Free Trial</Button>
               </div>
             </div>
           </div>

@@ -16,6 +16,6 @@ Looking for hosted Snowplow? Please visit our [website](https://www.snowcatcloud
 
 {% quick-link title="Chrome Extension" icon="plugins" href="/docs/chrome-extension-introduction" description="SnowcatCloud Chrome Extension" /%}
 
-{% quick-link title="Integrations" icon="theming" href="/docs/shopify" description="Some description." /%}
+{% quick-link title="Integrations" icon="theming" href="/docs/shopify" description="Shopify, FingerprintJS, and other integrations." /%}
 
 {% /quick-links %}
