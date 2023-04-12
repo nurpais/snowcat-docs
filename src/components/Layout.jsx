@@ -84,7 +84,7 @@ function Header({ navigation }) {
   return (
     <header
       className={clsx(
-        'sticky top-0 z-50 flex flex-wrap items-center justify-between bg-white px-4 py-5 shadow-md shadow-slate-900/5 transition duration-500 dark:shadow-none sm:px-6 lg:px-8',
+        'sticky top-0 z-50 flex flex-wrap items-center justify-between bg-white px-4 py-5 shadow-md shadow-slate-900/5 transition duration-500 dark:shadow-none lg:px-0 ',
         isScrolled
           ? 'dark:bg-slate-900/95 dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-slate-900/75'
           : 'dark:bg-transparent'
@@ -93,14 +93,14 @@ function Header({ navigation }) {
       <div className="mr-6 flex lg:hidden">
         <MobileNavigation navigation={navigation} />
       </div>
-      <div className="mx-auto flex max-w-[1572px] flex-1 items-center justify-between xl:px-8">
-        <div className="relative flex  items-center">
+      <div className="mx-auto flex max-w-[1572px] flex-1 items-center justify-between lg:px-8">
+        <div className="relative flex  w-64 items-center xl:w-72">
           <Link href="/" aria-label="Home page">
             <Logomark className="h-9 w-9 lg:hidden" />
-            <Logo className="hidden h-9 w-auto fill-[#020202] dark:fill-white lg:block" />
+            <Logo className="hidden h-8 w-auto fill-[#020202] dark:fill-white lg:block" />
           </Link>
         </div>
-        <div className="-my-5 mr-6 ml-auto sm:mr-8 md:mr-0 md:ml-6">
+        <div className="-my-5 mr-6 ml-auto sm:mr-8 md:mr-0 ">
           <Search />
         </div>
         <div className="relative flex basis-0 justify-end gap-6 sm:gap-8 md:flex-grow">
@@ -203,7 +203,7 @@ export function Layout({ children, title, tableOfContents }) {
             {(title || section) && (
               <header className="mb-9 space-y-1">
                 {section && (
-                  <p className="font-display text-sm font-medium text-sky-500">
+                  <p className="font-display text-sm font-medium text-primary">
                     {section.title}
                   </p>
                 )}
@@ -267,7 +267,7 @@ export function Layout({ children, title, tableOfContents }) {
                           href={`#${section.id}`}
                           className={clsx(
                             isActive(section)
-                              ? 'text-sky-500'
+                              ? 'text-primary'
                               : 'font-normal text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300'
                           )}
                         >
@@ -285,7 +285,7 @@ export function Layout({ children, title, tableOfContents }) {
                                 href={`#${subSection.id}`}
                                 className={
                                   isActive(subSection)
-                                    ? 'text-sky-500'
+                                    ? 'text-primary'
                                     : 'hover:text-slate-600 dark:hover:text-slate-300'
                                 }
                               >

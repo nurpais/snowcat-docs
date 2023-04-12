@@ -18,11 +18,7 @@ But you can also **add your own, by sending a self describing event** to your Sn
 
 For example, a user on a website is prompted to input an e-mail or phone number; these are strong identifiers you can later use to join with backend data. As the user inputs the e-mail or phone, you can trigger an event that will associate that information with the device they are currently using.
 
-<div class="w-full text-center">
-<img class="w-5/6 m-auto" src="/integrations/identifier.svg" />
-</div>
-
-![Images](/images/identifier.svg)
+![Images](/images/identifier.svg){% .w-5d6 .mx-auto %}
 
 ```html
 <form>

@@ -20,7 +20,7 @@ export function Tabs({ labels, children }) {
               onClick={() => setCurrentTab(label)}
               className={clsx(
                 'border-b py-3 px-4 text-sm font-bold',
-                label === currentTab ? 'border-sky-400' : 'border-transparent'
+                label === currentTab ? 'border-primary' : 'border-transparent'
               )}
             >
               {label}

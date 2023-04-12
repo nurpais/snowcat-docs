@@ -5,7 +5,7 @@ description: 'Snowplow Shopify integration'
 
 ## Snowplow Shopify integration
 
-{% callout%}
+{% callout type="warning"%}
 Check our one-click Shopify Snowplow Integration: [Snowplow Event Tracker for Shopify ](https://apps.shopify.com/snowplow-by-snowcatcloud)
 {% /callout%}
 

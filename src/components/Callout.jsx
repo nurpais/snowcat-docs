@@ -4,16 +4,14 @@ import { Icon } from '@/components/Icon'
 
 const styles = {
   note: {
-    container:
-      'bg-sky-50 dark:bg-slate-800/60 dark:ring-1 dark:ring-slate-300/10',
-    title: 'text-sky-900 dark:text-sky-400',
-    body: 'text-sky-800 [--tw-prose-background:theme(colors.sky.50)] prose-a:text-sky-900 prose-code:text-sky-900 dark:text-slate-300 dark:prose-code:text-slate-300',
+    container: 'bg-[#ebf8ff] dark:bg-[#2a4365] dark:ring-1 dark:ring-[#2b6cb0]',
+    title: 'text-[#2b6cb0] dark:text-primary',
+    body: 'text-sky-800 [--tw-prose-background:theme(colors.sky.50)] prose-a:!text-[#e2e8f0] prose-a:!shadow-none prose-a:!underline prose-code:text-[#2b6cb0] dark:text-[#90cdf4] dark:prose-code:text-[#90cdf4]',
   },
   warning: {
-    container:
-      'bg-amber-50 dark:bg-slate-800/60 dark:ring-1 dark:ring-slate-300/10',
-    title: 'text-amber-900 dark:text-amber-500',
-    body: 'text-amber-800 [--tw-prose-underline:theme(colors.amber.400)] [--tw-prose-background:theme(colors.amber.50)] prose-a:text-amber-900 prose-code:text-amber-900 dark:text-slate-300 dark:[--tw-prose-underline:theme(colors.sky.700)] dark:prose-code:text-slate-300',
+    container: 'bg-[#fffaf0] dark:bg-[#744210] dark:ring-1 dark:ring-[#b7791f]',
+    title: 'text-[#c05621] dark:text-[#fbd38d]',
+    body: 'text-amber-800 [--tw-prose-underline:theme(colors.amber.400)] [--tw-prose-background:theme(colors.amber.50)] prose-a:!text-[#e2e8f0] prose-a:!shadow-none prose-a:!underline prose-code:text-[#c05621] dark:text-[#fbd38d] dark:[--tw-prose-underline:theme(colors.sky.700)] dark:prose-code:text-[#fbd38d]',
   },
 }
 

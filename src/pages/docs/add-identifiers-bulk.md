@@ -20,7 +20,7 @@ The identifier id property is unique per node and defined by the fields listed b
 
 The example below illustrates a user who submits a form, creating a data entry that associates their cookie with personal data. Note this enrichment can happen in real-time OR/AND bulk. The goal is to tie as many identifiers are possible to aggregate customer behavior across devices.
 
-![Images](/images/identifiers.svg)
+![Images](/images/identifiers.svg) {% .w-2d5 .mx-auto %}
 
 ### File Upload Requirements
 
