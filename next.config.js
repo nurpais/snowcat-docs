@@ -7,6 +7,7 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md'],
   experimental: {
     scrollRestoration: true,
+    runtime: 'edge',
   },
 }
 
