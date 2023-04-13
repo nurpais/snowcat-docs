@@ -9,6 +9,9 @@ const nextConfig = {
     scrollRestoration: true,
     runtime: 'edge',
   },
+  images: {
+    unoptimized: true,
+  },
 }
 
 module.exports = withMarkdoc()(nextConfig)
